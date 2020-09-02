@@ -10,22 +10,23 @@ class Produk extends Component {
     }
     render() {
         const ListProduk = this.props.data.map(produk => (
-            <div className="col-md-3" key={produk.id_produk} >
-                <div className="panel panel-default">
-                    <div className="panel-body">
-                        <p> <img width="200" height="200" src={this.state.url+produk.foto_produk} alt="test" className="img-rounded img-responsive" /> </p>
+               
+                <div className="card shadow" key={produk.id_produk}>
+                    <img src={this.state.url+produk.foto_produk} alt="test" className="card-img-top" />
+                    <div className="card-body">
                         <p><b>Rp {produk.harga_produk} </b></p>
                         <p><b> {produk.nama_produk} </b></p>
                         <Link to={'/detail/'+produk.id_produk} className="btn btn-success" >DETAIL</Link>
                     </div>
+                
                 </div>
-            </div>
+
         ))
         return (
             <div className="row">
-                <div className="col-md-12">
+ <div className="card-columns">
                     {ListProduk}
-                </div>
+                    </div>
             </div>
         )
     }
