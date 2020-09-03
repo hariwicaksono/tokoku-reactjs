@@ -5,7 +5,7 @@ class ProdukU extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            url: 'http://localhost/api_olsop_fix/server/asset/img/'
+            url: 'http://localhost/tokoku-server/assets/images/'
         }
     }
     render() {

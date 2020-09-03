@@ -1,33 +1,33 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import { Row, Card } from 'react-bootstrap'
 
 class Produk extends Component {
     constructor(props){
         super(props)
         this.state={
-            url : 'http://localhost/api_olsop_fix/server/asset/img/'
+            url : 'http://localhost/tokoku-server/assets/images/'
         }
     }
     render() {
         const ListProduk = this.props.data.map(produk => (
-               
-                <div className="card shadow" key={produk.id_produk}>
-                    <img src={this.state.url+produk.foto_produk} alt="test" className="card-img-top" />
-                    <div className="card-body">
-                        <p><b>Rp {produk.harga_produk} </b></p>
-                        <p><b> {produk.nama_produk} </b></p>
+               <div className="col-md-3" key={produk.id_produk}>
+                <Card className="shadow-sm">
+                    <Card.Img variant="top" src={this.state.url+produk.foto_produk} alt={produk.nama_produk} />
+                    <Card.Body>
+                        <Card.Text>Rp {produk.harga_produk}<br/>
+                        {produk.nama_produk}</Card.Text>
                         <Link to={'/detail/'+produk.id_produk} className="btn btn-success" >DETAIL</Link>
-                    </div>
-                
+                    </Card.Body>
+                </Card>
                 </div>
+                
 
         ))
         return (
-            <div className="row">
- <div className="card-columns">
-                    {ListProduk}
-                    </div>
-            </div>
+            <Row>
+                {ListProduk}
+            </Row>
         )
     }
 }

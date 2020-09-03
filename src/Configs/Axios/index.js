@@ -1,5 +1,13 @@
 import Axios from 'axios'
 
+export const SiteUrl = () => {
+    return "http://localhost/tokoku-server/api/"
+}
+
+export const ImagesUrl = () => {
+    return "http://localhost/tokoku-server/assets/images/"
+}
+
 const RoothPath = "http://localhost/tokoku-server/api/"
 
 const GET = (path) => {
@@ -107,30 +115,30 @@ const POSTPESAN = (path,data) =>{
 
 
 
-const GetProduk = () => GET('ProdukController')
+const GetProduk = () => GET('Produk')
 const GetUser = () => GET('UserController')
 const GetAdmin = () => GET('AdminController')
 const GetAllPesan = () => GET('PemesananController')
-const GetProdukId = (data) => GET_ID('ProdukController?id=',data)
+const GetProdukId = (data) => GET_ID('Produk?id=',data)
 const PostLogin = (data) => LOGIN('LoginController',data)
 const PostUser = (data) => POSTUSER('UserController',data)
 const PostPesan = (data) => POSTPESAN('PemesananController',data)
 const GetPesan = (data) => GETPESAN('PemesananController?id=',data)
-const PostProduk = (data) => POSTPESAN('ProdukController',data)
+const PostProduk = (data) => POSTPESAN('Produk',data)
 const PostAdmin = (data) => POSTPESAN('AdminController',data)
 const PostImageP = (data,name) => POSTIMAGE('ImageUpload',data,name)
-const PutProduk = (data) => PUTPRODUK('ProdukController',data);
+const PutProduk = (data) => PUTPRODUK('Produk',data);
 const PutPesan = (data) => PUTPRODUK('PemesananController',data);
 const PutAdmin = (data) => PUTPRODUK('AdminController',data);
 const PutUser = (data) => PUTPRODUK('UserController',data);
-const DeleteProduk = (id) => Delete('ProdukController/index_delete?id=',id)
+const DeleteProduk = (id) => Delete('Produk/index_delete?id=',id)
 const DeletePemesanan = (id) => Delete('PemesananController/index_delete?id=',id)
 const DeleteUser = (id) => Delete('UserController/index_delete?id=',id)
 const DeleteAdmin = (id) => Delete('AdminController/index_delete?id=',id)
 const GetPesanId = (data) => GET_ID('ImageUpload?id=',data)
 const GetUserId = (data) => GET_ID('UserController?id=',data)
 const GetAdminId = (data) => GET_ID('AdminController?id=',data)
-
+const GetSlideshow = () => GET('Slideshow')
 
 
 const API = {
@@ -156,7 +164,8 @@ const API = {
     PostAdmin,
     GetAdminId,
     PutAdmin,
-    PutUser
+    PutUser,
+    GetSlideshow
 }
 
 export default API

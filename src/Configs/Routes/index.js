@@ -57,8 +57,8 @@ const MyRouter = () => {
         <Route path='/tadmin' component={TambahAdmin}/>
         <Route path='/editadmin/:id' component={EAdmin}/>
         <Route path='/edituser/:id' component={EditUser}/>
-        </ScrollToTop>
         <NotificationContainer />
+        </ScrollToTop>
     </Switch>
             
     )

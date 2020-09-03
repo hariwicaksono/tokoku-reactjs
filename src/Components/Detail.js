@@ -24,7 +24,7 @@ class Detail extends Component {
                 kategori :res.kategori_produk,
                 harga: res.harga_produk,
                 des:res.desk_produk,
-                foto : 'http://localhost/tokoku-server/asset/img/'+res.foto_produk
+                foto : 'http://localhost/tokoku-server/assets/images/'+res.foto_produk
             })
         })
     }

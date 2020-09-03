@@ -49,7 +49,7 @@ class MyNavbar extends Component{
     render(){
         return(
      
-        <Navbar className="shadow-sm border-bottom" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
+        <Navbar className="shadow-sm border-bottom mb-3" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
       <Container>
         <Navbar.Brand as={Link} to='/'> 
             TOKOKU
@@ -63,15 +63,11 @@ class MyNavbar extends Component{
                <>
                </>
                :
-               <NavDropdown title={'Menu User'} id="basic-nav-dropdown">
-                <NavDropdown.Item as={Link} to='/user'>Dashboard</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/user/pendaftaran'>Form Pendaftaran</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to='/user/dokumen'>Upload Dokumen</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={'/akun/edit/' + this.state.id}>Akun</NavDropdown.Item>
-           </NavDropdown>
+               <>
+               </>
             }    
 
-            <NavDropdown title="Menu Utama" id="basic-nav-dropdown">
+            <NavDropdown title="Kategori" id="basic-nav-dropdown">
              <NavDropdown.Item as={Link} to='/page/31'>Alur Pendaftaran</NavDropdown.Item>
              <NavDropdown.Item as={Link} to='/page/14'>Jenis Pendaftaran</NavDropdown.Item>
              <NavDropdown.Item as={Link} to='/page/34'>Syarat Pendaftaran</NavDropdown.Item>
