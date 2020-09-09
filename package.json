@@ -23,6 +23,7 @@
     "react-scripts": "^3.4.3",
     "slick-carousel": "^1.8.1",
     "spin.js": "^4.1.0",
+    "tiny-slider": "^2.9.3",
     "yup": "^0.29.3"
   },
   "scripts": {
