@@ -17,6 +17,7 @@
     "react-loader": "^2.4.7",
     "react-loading-skeleton": "^2.1.1",
     "react-notifications": "^1.6.0",
+    "react-paginate": "^6.4.0",
     "react-router-dom": "^5.1.2",
     "react-router-scroll-top": "^0.2.1",
     "react-scripts": "^3.4.3",

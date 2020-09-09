@@ -7,7 +7,7 @@ import {Container, Card, Row, Col, Spinner, Button, Form} from 'react-bootstrap'
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
-const TITLE = ' Masuk - Tokoku'
+const TITLE = ' Masuk - Nita Mart'
 const validationSchema = yup.object({
     username: yup.string().required(),
     password: yup.string().required()
@@ -43,9 +43,9 @@ class Login extends Component {
                     <Row className="justify-content-center">
                   
                     <Col lg="6">
-                    <ul className="nav nav-tabs nav-fill bg-white" style={{fontSize: '1.125rem', fontWeight: '600'}}>
+                    <ul className="nav nav-tabs nav-fill bg-white" style={{fontSize: '1.125rem'}}>
                 <li className="nav-item">
-                    <NavLink className="nav-link active" to='/login'>Masuk</NavLink>
+                    <NavLink className="nav-link active font-weight-bold" to='/login'>Masuk</NavLink>
                 </li>
                 <li className="nav-item">
                 <NavLink className="nav-link" to='/register'>Daftar</NavLink>
@@ -54,6 +54,7 @@ class Login extends Component {
                 </ul>
                         <Card>
                             <Card.Body>
+                               
                             <Formik
                             initialValues={{ username: '', password: '', level:'USER' }}
                             onSubmit={(values, actions) => {
@@ -86,19 +87,19 @@ class Login extends Component {
                                 isSubmitting
                             }) => (
                         <Form noValidate onSubmit={handleSubmit} className="px-5 py-3">
-                                
+                                 <h3 className="text-center" style={{fontWeight: '300'}}>Masuk ke Akun Toko Nita Mart kamu!</h3>
                             <Form.Group>
-                                <Form.Label>MASUKAN EMAIL</Form.Label>
-                                <Form.Control type="text" name="username" className="form-control" onChange={handleChange} onBlur={handleBlur} value={values.username} isInvalid={!!errors.username && touched.username} />
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control type="text" name="username" placeholder="Email anda" className="form-control" onChange={handleChange} onBlur={handleBlur} value={values.username} isInvalid={!!errors.username && touched.username} />
                                 {errors.username && touched.username && <Form.Control.Feedback type="invalid">{errors.username}</Form.Control.Feedback>}
                             </Form.Group>
                             <Form.Group>
-                                <Form.Label>MASUKAN PASSWORD</Form.Label>
-                                <Form.Control type="password" name="password" className="form-control" onChange={handleChange} onBlur={handleBlur} isInvalid={!!errors.password && touched.password} />
+                                <Form.Label>Kata Sandi</Form.Label>
+                                <Form.Control type="password" name="password" placeholder="Password" className="form-control" onChange={handleChange} onBlur={handleBlur} isInvalid={!!errors.password && touched.password} />
                                 {errors.password && touched.password && <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>}
                             </Form.Group>
     
-                            <Button block variant="primary" type="submit" disabled={isSubmitting}>{isSubmitting ? (
+                            <Button block size="lg" variant="primary" type="submit" disabled={isSubmitting}>{isSubmitting ? (
                             <>
                             <Spinner
                             as="span"
@@ -116,8 +117,8 @@ class Login extends Component {
                                 {
                                     this.state.gagalLogin
                                 }
-                                <hr/>
-                                <Link to={'/register'}>DAFTAR AKUN</Link>
+                               
+                               
                             </Card.Body>
                         </Card>
                     </Col>

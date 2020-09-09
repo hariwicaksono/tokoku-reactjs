@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import API from '../Configs/Axios'
+import { Helmet } from 'react-helmet'
+import {Container, Card, Row, Col, Spinner, Button, Form} from 'react-bootstrap'
+import { Formik } from 'formik';
+import * as yup from 'yup';
 
+const TITLE = ' Daftar - Nita Mart'
 class Register extends Component {
     constructor(props){
         super(props)
@@ -40,17 +45,27 @@ class Register extends Component {
 
     render() {
         return (
-            <div>
-        
-                <div className="container">
-                    <div className="col-md-4"></div>
-                    <div className="col-md-4">
-                        <div className="panel">
-                            <div className="panel panel-default">
-                                <div className="panel-body">
-                                    <h1>REGISTER AKUN</h1>
-                                    <br/>
-                                    <hr/>
+            <>
+            <Helmet>
+            <title>{ TITLE }</title>
+            </Helmet>
+                <Container>
+                <Row className="justify-content-center">
+                  
+                  <Col lg="6">
+                  <ul className="nav nav-tabs nav-fill bg-white" style={{fontSize: '1.125rem'}}>
+                <li className="nav-item">
+                    <NavLink className="nav-link" to='/login'>Masuk</NavLink>
+                </li>
+                <li className="nav-item">
+                <NavLink className="nav-link active font-weight-bold" to='/register'>Daftar</NavLink>
+                </li>
+
+                </ul>
+                        
+                            <Card>
+                                <Card.Body>
+
                                     <form onSubmit={this.handlerSubmit} >
                                         <div className="form-group">
                                             <label>MASUKAN NAMA</label>
@@ -77,14 +92,14 @@ class Register extends Component {
                                     {
                                         this.state.err
                                     }
-                                    <br/>
-                                    <Link to="/login">LOGIN NOW</Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                    
+                                </Card.Body>
+                            </Card>
+                     
+                    </Col>
+                    </Row>
+                </Container>
+            </>
         )
     }
 }

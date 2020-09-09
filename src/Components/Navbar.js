@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import {Link,NavLink} from 'react-router-dom'
 import {Container, Form,Button, Navbar, Nav, NavItem, NavDropdown} from 'react-bootstrap'
 import PeriksaForm from './PeriksaForm'
-import API from '../Configs/Axios'
+import API,{ImagesUrl} from '../Configs/Axios'
 import { logout, isLogin } from '../Utils'
 
 class MyNavbar extends Component{
@@ -13,7 +13,7 @@ class MyNavbar extends Component{
             id: '',
             nama: '',
             foto:'',
-            url: 'http://localhost/tokoku-server/assets/img/'
+            url: ImagesUrl()
         }
       }
       Logout = () => {
@@ -52,7 +52,7 @@ class MyNavbar extends Component{
         <Navbar className="shadow-sm border-bottom mb-3" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
       <Container>
         <Navbar.Brand as={Link} to='/'> 
-            TOKOKU
+            NITA Mart
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -87,7 +87,7 @@ class MyNavbar extends Component{
             {this.state.login ?
             <>
             <Form inline className="my-2 my-lg-0 pl-1">
-            <Button as={NavLink} variant="outline-danger" to='/login' activeClassName="active">Masuk/Daftar</Button>
+            <Button as={NavLink} variant="danger" to='/login' activeClassName="active">Masuk/Daftar</Button>
             </Form>
             </>
            :
@@ -107,7 +107,7 @@ class MyNavbar extends Component{
                 alt="Foto"
                 width="30"
                 className="rounded-circle"
-                src={this.state.url+'no-photo.jpg'} />
+                src={this.state.url+'no-avatar.png'} />
             </>
             )} id="basic-nav-dropdown" alignRight>
             <NavDropdown.Item as={Link} to={'/akun/edit/' + this.state.id}>Akun</NavDropdown.Item>
