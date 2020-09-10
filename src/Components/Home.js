@@ -36,7 +36,7 @@ class Home extends Component {
             <>
                 <Container>
                     <Row className="mb-3 justify-content-center">
-                    <Col md={11}>
+                    <Col md={12}>
                     <Slideshow data={this.state.Slideshow} />
                     </Col>
                    

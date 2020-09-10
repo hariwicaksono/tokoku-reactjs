@@ -2,7 +2,23 @@ import React, { Component } from 'react'
 //import {Link} from 'react-router-dom'
 import {ImagesUrl} from '../Configs/Axios'
 import {Carousel} from 'react-bootstrap'
+import TinySlider from 'tiny-slider-react'
+import 'tiny-slider/dist/tiny-slider.css';
 
+const settings = {
+    lazyload: false,
+    nav: true,
+    mouseDrag: true,
+    controls: true,
+    edgePadding: 80,
+    speed: 400,
+    gutter: 10,
+    items: 1,
+    autoplay: true,
+    autoplayPosition: 'bottom',
+    navPosition: 'bottom',
+    arrowKeys: true
+  };
 const url = ImagesUrl();
 class Slideshow extends Component {
     constructor(props){
@@ -12,20 +28,20 @@ class Slideshow extends Component {
         }
     }
     render() {
-        const ListSlideshow = this.props.data.map(s => (
-            <Carousel.Item key={s.id_slide}>
+        const ListSlideshow = this.props.data.map((s, index) => (
+            <div key={index} style={{ position: "relative" }} >
                 <img
                 className="rounded d-block w-100"
                 src={url+s.gambar_slide}
                 alt={s.tulisan_slide}
                 />
-            </Carousel.Item>
+            </div>
 
         ))
         return (
-            <Carousel>
+            <TinySlider settings={settings}>
                 {ListSlideshow}
-            </Carousel>
+            </TinySlider>
         )
     }
 }

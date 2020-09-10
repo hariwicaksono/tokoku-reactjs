@@ -87,7 +87,7 @@ class MyNavbar extends Component{
             {this.state.login ?
             <>
             <Form inline className="my-2 my-lg-0 pl-1">
-            <Button as={NavLink} variant="danger" to='/login' activeClassName="active">Masuk/Daftar</Button>
+            <Button as={NavLink} variant="success" to='/login' activeClassName="active">Masuk/Daftar</Button>
             </Form>
             </>
            :

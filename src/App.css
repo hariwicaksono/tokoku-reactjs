@@ -7158,7 +7158,7 @@ img.bg-image {
   font-weight: 500; }
 
 .btn-warning {
-  color: #fff; }
+  color: #212529; }
 
 .btn-outline-primary:not(:hover):not([aria-expanded="true"]):not([aria-pressed="true"]), .btn-outline-secondary:not(:hover):not([aria-expanded="true"]):not([aria-pressed="true"]) {
   border-color: #ced4da; }
