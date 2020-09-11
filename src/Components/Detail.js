@@ -25,10 +25,13 @@ class Detail extends Component {
         API.GetProdukId(id).then(res=>{
             this.setState({
                 nama : res.nama_produk,
-                kategori :res.kategori_produk,
                 harga: res.harga_produk,
                 des:res.desk_produk,
-                foto : ImagesUrl()+res.foto_produk
+                foto : ImagesUrl()+res.foto_produk,
+                stok: res.stok,
+                diskon: res.diskon,
+                kategori: res.kategori,
+                suplier: res.suplier
             })
         })
     }
@@ -50,7 +53,7 @@ class Detail extends Component {
                                     <Col md="8">
                                     <h2>{this.state.nama}</h2>
                                 <h3 className="text-danger my-4">Rp{this.state.harga}</h3>
-                                <p>Stok:</p>
+                                <p>Stok: {this.state.stok}</p>
                                 <p>Pengiriman:</p>
                                 <p>Kuantitas:</p>
                                 <Link className="btn btn-danger btn-lg">Beli Sekarang</Link>

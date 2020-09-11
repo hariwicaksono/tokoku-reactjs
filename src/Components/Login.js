@@ -66,6 +66,7 @@ class Login extends Component {
                                             isLogin:true,
                                             idLogin:"1"
                                         })
+                                        window.location.href = '/user';
                                         NotificationManager.success('Login Berhasil');
                                     } else {
                                         NotificationManager.error('Login Gagal, periksa kembali username dan password anda');

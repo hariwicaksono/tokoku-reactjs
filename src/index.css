@@ -353,3 +353,28 @@ input.error {
     padding-left: 5px;
     margin-top: -8px;
 }
+.tns-nav {
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    left: 0;
+    z-index: 15;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+}
+.tns-nav > [aria-controls] {
+  width: 40px;
+  height: 4px;
+  padding: 0;
+  margin: 0 5px;
+  background: #ddd;
+  border: 0;
+  cursor: pointer;
+}
+.tns-nav > .tns-nav-active { background: #999; }

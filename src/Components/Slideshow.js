@@ -8,15 +8,17 @@ import 'tiny-slider/dist/tiny-slider.css';
 const settings = {
     lazyload: false,
     nav: true,
+    navPosition: 'bottom',
     mouseDrag: true,
-    controls: true,
+    controls: false,
     edgePadding: 80,
     speed: 400,
     gutter: 10,
     items: 1,
     autoplay: true,
-    autoplayPosition: 'bottom',
-    navPosition: 'bottom',
+    autoplayHoverPause: true,
+    autoplayButton: false,
+    autoplayButtonOutput: false,
     arrowKeys: true
   };
 const url = ImagesUrl();

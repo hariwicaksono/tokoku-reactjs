@@ -2,6 +2,8 @@ import React,{Component} from 'react'
 import {NavLink} from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 //import { HouseDoorFill, GridFill, PersonFill, PersonPlusFill, FilePostFill } from 'react-bootstrap-icons'
+
+import { BsFillHouseDoorFill } from "react-icons/bs";
 import { isLogin } from '../Utils'
 
 class Appbar extends Component{
@@ -35,7 +37,7 @@ class Appbar extends Component{
 
               {this.state.login ?
                <Nav.Item>
-               <Nav.Link as={NavLink} to="/" activeClassName="active" exact><div>Home</div></Nav.Link>
+               <Nav.Link as={NavLink} to="/" activeClassName="active" exact><BsFillHouseDoorFill size="20"/><div>Home</div></Nav.Link>
              </Nav.Item>
               :
 
