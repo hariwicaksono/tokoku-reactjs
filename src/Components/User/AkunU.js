@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import NavbarU from './NavbarU'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link } from 'react-router-dom'
 import API from '../../Configs/Axios'
 
 class AkunU extends Component {
@@ -37,7 +36,6 @@ class AkunU extends Component {
     render() {
         return (
             <div>
-                <NavbarU />
                 <div className="container">
                     <div className="col-md-4"></div>
                     <div className="col-md-4">

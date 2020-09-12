@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import NavbarU from './NavbarU'
 import API from '../../Configs/Axios'
 
 class EditUser extends Component {
@@ -83,7 +82,7 @@ class EditUser extends Component {
     render() {
         return (
             <div>
-                <NavbarU />
+             
                 <div className="container">
                     <div className="col-md-4"></div>
                     <div className="col-md-4">

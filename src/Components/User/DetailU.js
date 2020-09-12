@@ -42,7 +42,7 @@ class DetailU extends Component {
     render() {
         return (
             <div>
-                <NavbarU />
+           
                 <div className="container">
                     <div className="col-md-4"></div>
                     <div className="col-md-4">

@@ -56,8 +56,11 @@ class Detail extends Component {
                                 <p>Stok: {this.state.stok}</p>
                                 <p>Pengiriman:</p>
                                 <p>Kuantitas:</p>
-                                <Link className="btn btn-danger btn-lg">Beli Sekarang</Link>
-                              
+                                <Link className="btn btn-danger btn-lg disabled">Beli Sekarang</Link>
+                                <hr/>
+                                <div className="alert alert-danger">
+                                    <p>YOU MUST BE LOGIN</p>
+                                </div>
                                     </Col>
                                     
                                 </Row>

@@ -38,12 +38,12 @@ const MyRouter = () => {
         <Route path="/aboutu" component={AboutU} />
         <Route path="/login" component={Login} />
         <Route path="/admin" component={Index} />
-        <Route path="/user" component={User} />
+        <PrivateRoute path="/user" component={User} />
         <Route path="/akunU" component={AkunU} />
         <Route path="/register" component={Register} />
         <Route path="/detail/:id" component={Detail} />
         <Route path="/detailu/:id" component={DetailU} />
-        <Route path="/cart" component={Cart} />
+        <PrivateRoute path="/cart" component={Cart} />
         <Route path="/pesanu" component={Pemesanan} />
         <Route path="/produka" component={ProdukA} />
         <Route path="/tproduk" component={TProdukA} />

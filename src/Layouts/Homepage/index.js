@@ -6,7 +6,7 @@ import Appbar from '../../Components/Appbar'
 import { Helmet } from 'react-helmet'
 import MyRouter from '../../Configs/Routes'
 
-const TITLE = 'Tokoku'
+const TITLE = 'Nita Mart'
 
 class Home extends Component {
     
@@ -29,7 +29,7 @@ class Home extends Component {
         return (
             
             <>
-                <Helmet>
+            <Helmet>
                 <title>{ TITLE }</title>
                 <style type="text/css">{`
                 body {

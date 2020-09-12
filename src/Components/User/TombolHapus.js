@@ -17,6 +17,7 @@ class TombolHapus extends Component {
             state.success ="Berhasil dihapus"
           return {cartItems:cartItems}
         })
+        window.location.reload();
     }
 
     componentDidMount = () => {

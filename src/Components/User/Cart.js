@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import NavbarU from './NavbarU'
 import CartDetail from './CartDetail'
 import API from '../../Configs/Axios'
+import { isLogin } from '../../Utils'
 
 class Cart extends Component {
     constructor(props) {
@@ -27,14 +27,30 @@ class Cart extends Component {
                 namau :  this.state.nama_user,
                 jml : prd.count
             }
+            alert(JSON.stringify(data))
             console.log(data)
-            API.PostPesan(data).then(res=>{
-                if (res.status === 1) {
-                    localStorage.setItem('cartItem','')
-                    localStorage.clear()
-                    this.props.history.push('/pesanu')
-                }
-            })
+            //API.PostPesan(data).then(res=>{
+                //if (res.status === 1) {
+                    //localStorage.setItem('cartItem','')
+                    //localStorage.clear()
+                    //this.props.history.push('/pesanu')
+                //}
+            //})
+            var yourNumber = "6282136091613"
+            var yourMessage = JSON.stringify(data)
+
+            // %20 mean space in link
+            // If you already had an array then you just join them with '%20'
+            // easy right
+
+            function getLinkWhastapp(number, message) {
+            number = yourNumber
+            message = encodeURIComponent(yourMessage).split(' ').join('%20')
+
+            return console.log('https://api.whatsapp.com/send?phone=' + number + '&text=%20' + message)
+            }
+
+            getLinkWhastapp()
         })
     }
 
@@ -49,7 +65,7 @@ class Cart extends Component {
             })
         }
         
-        if (sessionStorage.getItem('isLogin')) {
+        if (isLogin()) {
             const datas = JSON.parse(sessionStorage.getItem('isLogin'))
             this.setState({
                 id_user: datas[0].id_user,
@@ -62,13 +78,13 @@ class Cart extends Component {
     render() {
         return (
             <div>
-                <NavbarU />
+           
                 <div className="container">
                     <hr />
                     <h1>{this.state.error}</h1>
                     {
-                        this.state.produk.map(prodok => {
-                            return <CartDetail key={prodok.id} data={prodok} />
+                        this.state.produk.map(produk => {
+                            return <CartDetail key={produk.id} data={produk} />
                         })
                     }
                     <hr/>

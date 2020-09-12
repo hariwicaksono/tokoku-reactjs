@@ -31,12 +31,12 @@ class MyNavbar extends Component{
         if (isLogin()) {
            console.log('LOGIN')
            const data = JSON.parse(sessionStorage.getItem('isLogin'))
-                const id = data[0].username
+                const id = data[0].id_user
                 API.GetUserId(id).then(res=>{
                     this.setState({
-                        id : res.username,
-                        nama: res.nama, 
-                        foto: res.foto,
+                        id : res.id_user,
+                        nama: res.nama_user, 
+                        foto: res.photo_user,
                     })
                 })
                 
@@ -110,7 +110,7 @@ class MyNavbar extends Component{
                 src={this.state.url+'no-avatar.png'} />
             </>
             )} id="basic-nav-dropdown" alignRight>
-            <NavDropdown.Item as={Link} to={'/akun/edit/' + this.state.id}>Akun</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to={'/akunU'}>Akun</NavDropdown.Item>
             <NavDropdown.Item onClick={this.Logout} href=''>Keluar</NavDropdown.Item>
             </NavDropdown>
             </NavItem>

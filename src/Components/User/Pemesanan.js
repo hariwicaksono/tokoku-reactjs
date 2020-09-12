@@ -28,7 +28,7 @@ class Pemesanan extends Component{
     render(){
         return(
             <div>
-                <NavbarU/>
+             
                 <div className="container">
                     <h1>TRANSAKSI PESAN</h1>
                     <hr/>
