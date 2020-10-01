@@ -43,7 +43,7 @@ const MyRouter = () => {
         <Route path="/register" component={Register} />
         <Route path="/detail/:id" component={Detail} />
         <Route path="/detailu/:id" component={DetailU} />
-        <PrivateRoute path="/cart" component={Cart} />
+        <Route path="/cart" component={Cart} />
         <Route path="/pesanu" component={Pemesanan} />
         <Route path="/produka" component={ProdukA} />
         <Route path="/tproduk" component={TProdukA} />

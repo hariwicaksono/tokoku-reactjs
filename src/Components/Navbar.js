@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {Link,NavLink} from 'react-router-dom'
 import {Container, Row, Col, Form, Button, Navbar, Nav, NavItem, NavDropdown} from 'react-bootstrap'
-import PeriksaForm from './PeriksaForm'
+import SearchForm from './SearchForm'
 import API from '../Configs/Axios'
 import {ImagesUrl} from '../Configs/Url'
 import { logout, isLogin } from '../Utils'
@@ -42,17 +42,20 @@ class MyNavbar extends Component{
     render(){
         return(
      
-        <Navbar className="shadow-sm border-bottom mb-3" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
+        <Navbar className="shadow-sm border-bottom mb-3 py-2" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
       <Container>
-        <Navbar.Brand as={Link} to='/'> 
+
+      <Navbar.Brand as={Link} to='/'> 
             TokoRia
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Row>
-                <Col className="collapse-brand" xs="6">
-                TokoRia
+                <Col className="collapse-brand d-lg-none d-xl-none" xs="6">
+                <Navbar.Brand as={Link} to='/'> 
+            TokoRia
+        </Navbar.Brand>
                 </Col>
                 <Col className="collapse-close" xs="6">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" >
@@ -84,14 +87,14 @@ class MyNavbar extends Component{
 
            </Nav>    
 
-            <PeriksaForm />
+            <SearchForm />
     
             <ul className="navbar-nav">
             
             {this.state.login ?
             <>
             <Form inline className="my-2 my-lg-0 pl-1">
-            <Button as={NavLink} variant="success" to='/login' activeClassName="active">Masuk/Daftar</Button>
+            <Button as={NavLink} variant="outline-primary" to='/login' activeClassName="active">Masuk/Daftar</Button>
             </Form>
             </>
            :

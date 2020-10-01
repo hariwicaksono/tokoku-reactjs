@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
 import {ImagesUrl} from '../Configs/Url'
-import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
+import { FiChevronsLeft, FiChevronsRight } from "react-icons/fi";
 
 class Produk extends Component {
     constructor(props){
@@ -63,7 +63,7 @@ class Produk extends Component {
             <Row>
                 {this.state.ListProduk}
             </Row>
-            <div className="mb-2">
+            <div className="py-3">
                 <ReactPaginate
                 containerClassName="pagination"
                 breakClassName="page-item"
@@ -75,8 +75,8 @@ class Produk extends Component {
                 previousLinkClassName="page-link"
                 nextLinkClassName="page-link"
                 activeClassName="active"
-                previousLabel={<BsChevronDoubleLeft/>}
-                nextLabel={<BsChevronDoubleRight/>}
+                previousLabel={<FiChevronsLeft/>}
+                nextLabel={<FiChevronsRight/>}
                 pageCount={this.state.pageCount}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={3}

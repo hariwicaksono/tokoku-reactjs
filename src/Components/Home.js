@@ -38,12 +38,11 @@ class Home extends Component {
         }
         return (
             <>
+            <Container fluid>
+            <Slideshow data={this.state.Slideshow} />
+            </Container>
                 <Container>
                     <Row className="mb-3 justify-content-center">
-                    <Col md={12}>
-                    <Slideshow data={this.state.Slideshow} />
-                    </Col>
-                   
 
                     </Row>
 

@@ -12,7 +12,7 @@ import {BsSearch} from 'react-icons/bs'
     //query: yup.string().required(),
   //}); 
 
-class LoginForm extends Component {
+class SearchForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -78,4 +78,4 @@ class LoginForm extends Component {
 
 }
 
-export default LoginForm
+export default SearchForm

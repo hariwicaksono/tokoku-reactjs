@@ -1,10 +1,8 @@
 import React,{Component} from 'react'
 import {NavLink} from 'react-router-dom'
-import { Nav } from 'react-bootstrap'
+import { Nav, Badge } from 'react-bootstrap'
 //import { HouseDoorFill, GridFill, PersonFill, PersonPlusFill, FilePostFill } from 'react-bootstrap-icons'
-
-import { BsFillHouseDoorFill, BsPersonFill, BsPersonPlusFill } from "react-icons/bs";
-import { FaShoppingCart } from "react-icons/fa";
+import { FiHome, FiShoppingCart, FiUser, FiUserPlus } from "react-icons/fi";
 import { isLogin } from '../Utils'
 
 class Appbar extends Component{
@@ -38,35 +36,43 @@ class Appbar extends Component{
 
               {this.state.login ?
                <Nav.Item>
-               <Nav.Link as={NavLink} to="/" activeClassName="active" exact><BsFillHouseDoorFill size="20"/><div>Home</div></Nav.Link>
+               <Nav.Link as={NavLink} to="/" activeClassName="active" exact><FiHome size="20"/><div>Home</div></Nav.Link>
              </Nav.Item>
               :
 
               <Nav.Item>
-                <Nav.Link as={NavLink} to="/user" activeClassName="active" exact><BsFillHouseDoorFill size="20"/><div>Member</div></Nav.Link>
+                <Nav.Link as={NavLink} to="/user" activeClassName="active" exact><FiHome size="20"/><div>Member</div></Nav.Link>
               </Nav.Item>
               }
               
               <Nav.Item>
-                <Nav.Link as={NavLink} to="/cart" activeClassName="active"><FaShoppingCart size="20"/><div>Keranjang</div></Nav.Link>
+                <Nav.Link as={NavLink} to="/cart" activeClassName="active"><FiShoppingCart size="20"/>
+                <Badge pill variant="danger">
+                {localStorage.getItem('cartItem').length > 0 ?
+JSON.parse(localStorage.getItem('cartItem')).length
+                :
+                ""
+                
+                }
+              </Badge><div>Keranjang</div></Nav.Link>
               </Nav.Item>
               
               {this.state.login ?
               <Nav.Item>
-                <Nav.Link as={NavLink} to="/login" activeClassName="active"><BsPersonFill size="20"/><div>Akun</div></Nav.Link>
+                <Nav.Link as={NavLink} to="/login" activeClassName="active"><FiUser size="20"/><div>Akun</div></Nav.Link>
               </Nav.Item>
               :
               <Nav.Item>
-                <Nav.Link as={NavLink} to="/akunU" activeClassName="active"><BsPersonFill size="20"/><div>Akun</div></Nav.Link>
+                <Nav.Link as={NavLink} to="/akunU" activeClassName="active"><FiUser size="20"/><div>Akun</div></Nav.Link>
               </Nav.Item>
               }
               {this.state.login ?
               <Nav.Item>
-                <Nav.Link as={NavLink} to="/register" activeClassName="active"><BsPersonPlusFill size="20"/><div>Daftar</div></Nav.Link>
+                <Nav.Link as={NavLink} to="/register" activeClassName="active"><FiUserPlus size="20"/><div>Daftar</div></Nav.Link>
               </Nav.Item>
               :
               <Nav.Item>
-                <Nav.Link as={NavLink} to="/user/pendaftaran" activeClassName="active"><BsPersonPlusFill size="20"/><div>Form</div></Nav.Link>
+                <Nav.Link as={NavLink} to="/user/pendaftaran" activeClassName="active"><FiUserPlus size="20"/><div>Form</div></Nav.Link>
               </Nav.Item>
               }
               </Nav>

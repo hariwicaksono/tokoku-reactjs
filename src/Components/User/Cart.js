@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CartDetail from './CartDetail'
 import API from '../../Configs/Axios'
 import { isLogin } from '../../Utils'
+import { Container, Row, Col, Card } from 'react-bootstrap'
 
 class Cart extends Component {
     constructor(props) {
@@ -77,9 +78,10 @@ class Cart extends Component {
 
     render() {
         return (
-            <div>
+            <>
            
-                <div className="container">
+                <Container>
+                    <Card body>
                     <hr />
                     <h1>{this.state.error}</h1>
                     {
@@ -89,9 +91,10 @@ class Cart extends Component {
                     }
                     <hr/>
                     <button className="btn btn-info margin" onClick={this.handlerSimpan} >CHECKOUT</button>
-                </div>
+                    </Card>
+                </Container>
                 
-            </div>
+            </>
         )
     }
 }
