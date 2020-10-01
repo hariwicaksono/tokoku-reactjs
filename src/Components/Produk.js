@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
-import {ImagesUrl} from '../Configs/Axios'
+import {ImagesUrl} from '../Configs/Url'
 import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 
 class Produk extends Component {

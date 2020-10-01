@@ -6,8 +6,7 @@ import Appbar from '../../Components/Appbar'
 import { Helmet } from 'react-helmet'
 import MyRouter from '../../Configs/Routes'
 
-const TITLE = 'Nita Mart'
-
+const TITLE = 'TokoRia'
 class Home extends Component {
     
     constructor(props) {

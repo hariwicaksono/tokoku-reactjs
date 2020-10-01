@@ -1,13 +1,5 @@
 import Axios from 'axios'
 
-export const SiteUrl = () => {
-    return "http://localhost/tokoku-server/api/"
-}
-
-export const ImagesUrl = () => {
-    return "http://localhost/tokoku-server/assets/images/"
-}
-
 const RoothPath = "http://localhost/tokoku-server/api/"
 
 const GET = (path) => {

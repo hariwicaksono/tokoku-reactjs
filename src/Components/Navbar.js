@@ -1,8 +1,9 @@
 import React,{Component} from 'react'
 import {Link,NavLink} from 'react-router-dom'
-import {Container, Form,Button, Navbar, Nav, NavItem, NavDropdown} from 'react-bootstrap'
+import {Container, Row, Col, Form, Button, Navbar, Nav, NavItem, NavDropdown} from 'react-bootstrap'
 import PeriksaForm from './PeriksaForm'
-import API,{ImagesUrl} from '../Configs/Axios'
+import API from '../Configs/Axios'
+import {ImagesUrl} from '../Configs/Url'
 import { logout, isLogin } from '../Utils'
 
 class MyNavbar extends Component{
@@ -16,18 +17,10 @@ class MyNavbar extends Component{
             url: ImagesUrl()
         }
       }
-      Logout = () => {
+    Logout = () => {
         logout();
-        //sessionStorage.setItem('isLogin','');
-        //sessionStorage.clear();
-        //this.setState({
-            //login:true
-        //})
-        
-        //NotificationManager.success('Berhasil keluar sistem');
-        
-        }
-        componentDidMount = () => {
+    }
+    componentDidMount = () => {
         if (isLogin()) {
            console.log('LOGIN')
            const data = JSON.parse(sessionStorage.getItem('isLogin'))
@@ -45,19 +38,30 @@ class MyNavbar extends Component{
                 login:true
             })
         }
-        }
+    }
     render(){
         return(
      
         <Navbar className="shadow-sm border-bottom mb-3" expand="lg" sticky="top" style={{backgroundColor: '#fff'}}>
       <Container>
         <Navbar.Brand as={Link} to='/'> 
-            NITA Mart
+            TokoRia
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-
+            <Row>
+                <Col className="collapse-brand" xs="6">
+                TokoRia
+                </Col>
+                <Col className="collapse-close" xs="6">
+                <Navbar.Toggle aria-controls="basic-navbar-nav" >
+                <span />
+                <span />
+                </Navbar.Toggle>
+                </Col>
+            </Row>
+            
             <Nav>  
             {this.state.login ?
                <>

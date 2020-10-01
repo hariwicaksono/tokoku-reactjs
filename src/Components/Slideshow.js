@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 //import {Link} from 'react-router-dom'
-import {ImagesUrl} from '../Configs/Axios'
+import {ImagesUrl} from '../Configs/Url'
 import {Carousel} from 'react-bootstrap'
 import TinySlider from 'tiny-slider-react'
 import 'tiny-slider/dist/tiny-slider.css';
