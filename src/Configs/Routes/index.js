@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Route, Switch } from "react-router-dom"
 import { NotificationContainer } from 'react-notifications';
 import ScrollToTop from 'react-router-scroll-top';
@@ -28,12 +28,31 @@ import HAdmin from '../../Components/Admin/HAdmin';
 import TambahAdmin from '../../Components/Admin/TambahAdmin';
 import EAdmin from '../../Components/Admin/EAdmin';
 import EditUser from '../../Components/User/EditUser';
-
-const MyRouter = () => {
+import Appbar from '../../Components/Appbar'
+ 
+class MyRouter extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          cartCount: 0
+        }
+      }
+      componentDidMount() {
+        const cartData = JSON.parse(localStorage.getItem('cartItem'));
+        const cartCount = cartData && cartData.length ? cartData.length : 0;
+        this.setState({cartCount: cartCount});
+      }
+    render() {
+        let that = this;
+        const cartCount = (cartCount) => {
+            that.setState({cartCount: cartCount})
+        }
     return(
+        <>
     <Switch>
+       
         <ScrollToTop>
-        <Route path="/" exact component={Home} />
+        <Route exact path="/" render={() => <Home totalCnt={cartCount}/>} />
         <Route path="/about" component={About} />
         <Route path="/aboutu" component={AboutU} />
         <Route path="/login" component={Login} />
@@ -60,8 +79,11 @@ const MyRouter = () => {
         <NotificationContainer />
         </ScrollToTop>
     </Switch>
+     <Appbar cartCount={that.state.cartCount} />
+     </>
             
-    )
+    );
+}
 }
 
 export default MyRouter

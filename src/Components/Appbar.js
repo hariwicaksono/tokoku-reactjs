@@ -1,8 +1,10 @@
 import React,{Component} from 'react'
+import { findDOMNode } from "react-dom";
 import {NavLink} from 'react-router-dom'
 import { Nav, Badge } from 'react-bootstrap'
 //import { HouseDoorFill, GridFill, PersonFill, PersonPlusFill, FilePostFill } from 'react-bootstrap-icons'
 import { FiHome, FiShoppingCart, FiUser, FiUserPlus } from "react-icons/fi";
+import { MdShoppingCart } from "react-icons/md";
 import { isLogin } from '../Utils'
 
 class Appbar extends Component{
@@ -10,9 +12,11 @@ class Appbar extends Component{
     super(props)
     this.state = {
         login:false,
-        id: ''  
+        id: '',
+        data: this.props.id
     }
   }
+
   componentDidMount = () => {
     if (isLogin()) {
        // console.log('Ok')
@@ -25,9 +29,11 @@ class Appbar extends Component{
             login:true
         })
     }
+
 }
+
     render(){
-        
+      
         return(
             <div className="pt-4 mt-4">
             
@@ -46,15 +52,10 @@ class Appbar extends Component{
               }
               
               <Nav.Item>
-                <Nav.Link as={NavLink} to="/cart" activeClassName="active"><FiShoppingCart size="20"/>
-                <Badge pill variant="danger">
-                {localStorage.getItem('cartItem').length > 0 ?
-JSON.parse(localStorage.getItem('cartItem')).length
-                :
-                ""
-                
-                }
-              </Badge><div>Keranjang</div></Nav.Link>
+                <Nav.Link as={NavLink} to="/cart" activeClassName="active"><MdShoppingCart size="1.5em"/>
+                <Badge pill variant="danger" style={{position:'absolute'}}>{this.props.cartCount ?
+              <span>{this.props.cartCount}</span> : ""
+              }</Badge><div>Keranjang</div></Nav.Link>
               </Nav.Item>
               
               {this.state.login ?

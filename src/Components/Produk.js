@@ -3,7 +3,10 @@ import {Link} from 'react-router-dom'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
 import {ImagesUrl} from '../Configs/Url'
-import { FiChevronsLeft, FiChevronsRight } from "react-icons/fi";
+import { FiChevronsLeft, FiChevronsRight } from "react-icons/fi"
+import { MdShoppingCart } from "react-icons/md";
+import _ from 'underscore';
+import { NotificationManager } from 'react-notifications'
 
 class Produk extends Component {
     constructor(props){
@@ -12,26 +15,55 @@ class Produk extends Component {
             url : ImagesUrl(),
             offset: 0,
             perPage: 8,
-            currentPage: 0
+            currentPage: 0,
         }
         this.handlePageClick = this
         .handlePageClick
         .bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    } 
+    handleSubmit(data, index) {
+        const array = [];
+        array.push(data);
+        const cartData = JSON.parse(localStorage.getItem('cartItem'));
+        const findManData = _.findWhere(cartData, {id_produk: data.id_produk});
+        if (findManData) {
+            for (let i = 0; i < cartData.length; i++) {
+                if (data.id_produk === cartData[i].id_produk) {
+                    cartData[i].count += 1; 
+                    break;
+                }
+            }
+            localStorage.setItem('cartItem',JSON.stringify(cartData));
+        } else {
+            if (cartData) {
+                cartData.push({...data,count:1})
+                localStorage.setItem('cartItem',JSON.stringify(cartData));
+            } else {
+                localStorage.setItem('cartItem',array);
+            }
+        }
+        NotificationManager.warning('Berhasil masuk keranjang');
+        setTimeout(()=>{
+          this.props.totalCnt(JSON.parse(localStorage.getItem('cartItem')) ? JSON.parse(localStorage.getItem('cartItem')).length : 0);
+        },1000);
     }
+   
     getHandler = () => {
        
                 const slice = this.props.data.slice(this.state.offset, this.state.offset + this.state.perPage)
-                const ListProduk = slice.map(produk => (
-                    <div className="col-md-3" key={produk.id_produk}>
-                    <Card className="shadow-sm">
+                const ListProduk = slice.map((produk, key) => (
+                    <Col md={3} key={produk.id_produk}>
+                    <Card className="shadow-sm mb-3">
                         <Card.Img variant="top" src={this.state.url+produk.foto_produk} alt={produk.nama_produk} />
-                        <Card.Body>
-                            <Card.Text>Rp {produk.harga_produk}<br/>
-                            {produk.nama_produk}</Card.Text>
-                            <Link to={'/detail/'+produk.id_produk} className="btn btn-success" >DETAIL</Link>
+                        <Card.Body className="pt-1">
+                            <Card.Text className="mb-1" style={{fontSize: '1.25rem'}}>{produk.nama_produk}</Card.Text>
+                            <Card.Text className="text-danger" style={{fontSize: '1.125rem'}}>Rp{produk.harga_produk}</Card.Text>
+                            <Link to={'/detail/'+produk.id_produk} className="" ></Link>
+                            <button type="submit" name="submit" defaultValue="Keranjang" className="btn btn-secondary btn-block" onClick={() => this.handleSubmit(produk, key)}>Tambah Ke <MdShoppingCart size="1.5em"/></button>
                         </Card.Body>
                     </Card>
-                    </div>
+                    </Col>
                 ))
 
                 this.setState({

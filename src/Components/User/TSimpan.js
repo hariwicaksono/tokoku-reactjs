@@ -10,7 +10,7 @@ class TSimpan extends Component{
         }
         this.handlerSubmit = this.handlerSubmit.bind(this)
     }
-
+ 
     handlerSubmit = (e,data) =>{
         this.setState(state=>{
             const cartItems = state.cartItems
@@ -26,7 +26,9 @@ class TSimpan extends Component{
             }
             localStorage.setItem('cartItem',JSON.stringify(cartItems))
             state.success = "Produk Sudah Masuk Keranjang"
-            console.log(state.cartItems)
+            setTimeout(()=>{
+                this.props.totalCnt(JSON.parse(localStorage.getItem('cartItem')) ? JSON.parse(localStorage.getItem('cartItem')).length : 0);
+              },1000);
             return{cartItems:cartItems}
         })
     }

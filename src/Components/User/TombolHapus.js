@@ -10,14 +10,16 @@ class TombolHapus extends Component {
         this.handlerRemove = this.handlerRemove.bind(this)
     }
 
-    handlerRemove = (e, item) => {
-        this.setState(state =>{
-          const cartItems = state.cartItems.filter(elm => elm.id !== item.id)
-          localStorage.setItem('cartItem',cartItems)
-            state.success ="Berhasil dihapus"
-          return {cartItems:cartItems}
+    handlerRemove = () => {
+        const items = JSON.parse(localStorage.getItem('cartItem'));
+        const id = items[0].id
+        const cartItems = items.filter(elm => elm.id !== id)
+        localStorage.setItem('cartItem',JSON.stringify(cartItems))
+
+        this.setState({
+            success: "Berhasil dihapus"
         })
-        window.location.reload();
+        //window.location.reload();
     }
 
     componentDidMount = () => {
@@ -30,7 +32,7 @@ class TombolHapus extends Component {
     render() {
         return (
             <div>
-                <button className="btn btn-danger" onClick={(e) => this.handlerRemove(e, this.props.data)} >HAPUS</button>
+                <button className="btn btn-danger" onClick={(e) => this.handlerRemove(e)} >HAPUS</button>
                 <br/>
                 {
                     this.state.success

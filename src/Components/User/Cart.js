@@ -8,14 +8,14 @@ class Cart extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            error: '',
+            error: "KERANJANG KOSONG",
             produk: [],
             id_user : '',
             desk : 'Belum Melakukan pembayaran',
             nama_user : ''
         }
     }
-
+ 
     handlerSimpan = () => {
         this.state.produk.map(prd =>{
             const data = {
@@ -60,10 +60,6 @@ class Cart extends Component {
             this.setState({
                 produk: JSON.parse(localStorage.getItem('cartItem'))
             })
-        } else {
-            this.setState({
-                error: "KERANJANG KOSONG"
-            })
         }
         
         if (isLogin()) {
@@ -83,11 +79,16 @@ class Cart extends Component {
                 <Container>
                     <Card body>
                     <hr />
-                    <h1>{this.state.error}</h1>
-                    {
+                   
+                    { this.state.produk.length > 0 ?
                         this.state.produk.map(produk => {
                             return <CartDetail key={produk.id} data={produk} />
                         })
+                        :
+                        <>
+                        {this.state.error}
+                        </>
+                    
                     }
                     <hr/>
                     <button className="btn btn-info margin" onClick={this.handlerSimpan} >CHECKOUT</button>

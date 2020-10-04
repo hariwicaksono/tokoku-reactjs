@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import API from '../Configs/Axios'
-import Produk from './Produk'
 import Loader from 'react-loader'
 import Slideshow from './Slideshow'
 import { isLogin } from '../Utils'
+import Produk from './Produk'
+
 
 var options = {lines: 13,length: 20,width: 10,radius: 30,scale: 0.35,corners: 1,color: '#fff',opacity: 0.25,rotate: 0,direction: 1,speed: 1,trail: 60,fps: 20,zIndex: 2e9,top: '50%',left: '50%',shadow: false,hwaccel: false,position: 'absolute'};
 class Home extends Component {
@@ -14,11 +15,12 @@ class Home extends Component {
         this.state = {
             Produk: [],
             Slideshow: [],
-            loading: true
-         
-        }
-    }
+            loading: true,
 
+        }
+      
+    }
+    
     componentDidMount = () => {
         API.GetProduk().then(res => {
             setTimeout(() => this.setState({
@@ -42,15 +44,7 @@ class Home extends Component {
             <Slideshow data={this.state.Slideshow} />
             </Container>
                 <Container>
-                    <Row className="mb-3 justify-content-center">
-
-                    </Row>
-
-                    <Card className="shadow-sm" body>This is some text within a card body.</Card>
-
-                    <div className="row">
-                        <div className="col-md-12">
-                        
+                 
 
                         { this.state.loading ?
                         <Loader options={options} className="spinner" />
@@ -58,11 +52,10 @@ class Home extends Component {
                         :
                         <>
                         <h2>Semua Produk</h2>
-                            <Produk data={this.state.Produk} />
+                           <Produk data={this.state.Produk} totalCnt={this.props.totalCnt}/>
                         </>
                         }
-                        </div>
-                    </div>
+             
                 </Container>
 
             </>
