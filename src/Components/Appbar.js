@@ -3,8 +3,7 @@ import { findDOMNode } from "react-dom";
 import {NavLink} from 'react-router-dom'
 import { Nav, Badge } from 'react-bootstrap'
 //import { HouseDoorFill, GridFill, PersonFill, PersonPlusFill, FilePostFill } from 'react-bootstrap-icons'
-import { FiHome, FiShoppingCart, FiUser, FiUserPlus } from "react-icons/fi";
-import { MdShoppingCart } from "react-icons/md";
+import { FiHome, FiShoppingCart, FiUser, FiUserPlus } from "react-icons/fi"
 import { isLogin } from '../Utils'
 
 class Appbar extends Component{
@@ -42,17 +41,17 @@ class Appbar extends Component{
 
               {this.state.login ?
                <Nav.Item>
-               <Nav.Link as={NavLink} to="/" activeClassName="active" exact><FiHome size="20"/><div>Home</div></Nav.Link>
+               <Nav.Link as={NavLink} to="/" activeClassName="active" exact><FiHome size="1.5em"/><div>Home</div></Nav.Link>
              </Nav.Item>
               :
 
               <Nav.Item>
-                <Nav.Link as={NavLink} to="/user" activeClassName="active" exact><FiHome size="20"/><div>Member</div></Nav.Link>
+                <Nav.Link as={NavLink} to="/user" activeClassName="active" exact><FiHome size="1.5em"/><div>Member</div></Nav.Link>
               </Nav.Item>
               }
               
               <Nav.Item>
-                <Nav.Link as={NavLink} to="/cart" activeClassName="active"><MdShoppingCart size="1.5em"/>
+                <Nav.Link as={NavLink} to="/cart" activeClassName="active"><FiShoppingCart size="1.5em"/>
                 <Badge pill variant="danger" style={{position:'absolute'}}>{this.props.cartCount ?
               <span>{this.props.cartCount}</span> : ""
               }</Badge><div>Keranjang</div></Nav.Link>

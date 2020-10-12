@@ -14,7 +14,7 @@ import Detail from '../../Components/Detail';
 import AkunU from '../../Components/User/AkunU';
 import DetailU from '../../Components/User/DetailU';
 import AboutU from '../../Components/User/AboutU';
-import Cart from '../../Components/User/Cart';
+import Cart from '../../Components/Cart';
 import Pemesanan from '../../Components/User/Pemesanan';
 import ProdukA from '../../Components/Admin/ProdukA';
 import TProdukA from '../../Components/Admin/TProdukA';

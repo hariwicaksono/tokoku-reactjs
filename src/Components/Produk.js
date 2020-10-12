@@ -3,8 +3,7 @@ import {Link} from 'react-router-dom'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
 import {ImagesUrl} from '../Configs/Url'
-import { FiChevronsLeft, FiChevronsRight } from "react-icons/fi"
-import { MdShoppingCart } from "react-icons/md";
+import { FiChevronsLeft, FiChevronsRight, FiShoppingCart } from "react-icons/fi"
 import _ from 'underscore';
 import { NotificationManager } from 'react-notifications'
 
@@ -57,10 +56,10 @@ class Produk extends Component {
                     <Card className="shadow-sm mb-3">
                         <Card.Img variant="top" src={this.state.url+produk.foto_produk} alt={produk.nama_produk} />
                         <Card.Body className="pt-1">
-                            <Card.Text className="mb-1" style={{fontSize: '1.25rem'}}>{produk.nama_produk}</Card.Text>
-                            <Card.Text className="text-danger" style={{fontSize: '1.125rem'}}>Rp{produk.harga_produk}</Card.Text>
+                            <Card.Text className="mb-0" style={{fontSize: '1.125rem'}}>{produk.nama_produk}</Card.Text>
+                            <Card.Text className="text-danger" style={{fontSize: '1rem'}}>Rp{produk.harga_produk}</Card.Text>
                             <Link to={'/detail/'+produk.id_produk} className="" ></Link>
-                            <button type="submit" name="submit" defaultValue="Keranjang" className="btn btn-secondary btn-block" onClick={() => this.handleSubmit(produk, key)}>Tambah Ke <MdShoppingCart size="1.5em"/></button>
+                            <button type="submit" name="submit" defaultValue="Keranjang" className="btn btn-secondary btn-block" onClick={() => this.handleSubmit(produk, key)}>Tambah Ke <FiShoppingCart size="1.5em"/></button>
                         </Card.Body>
                     </Card>
                     </Col>

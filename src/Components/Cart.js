@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import CartDetail from './CartDetail'
-import API from '../../Configs/Axios'
-import { isLogin } from '../../Utils'
-import { Container, Row, Col, Card } from 'react-bootstrap'
+import API from '../Configs/Axios'
+import { isLogin } from '../Utils'
+import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import { RiWhatsappFill } from "react-icons/ri";
 
 class Cart extends Component {
     constructor(props) {
@@ -20,10 +21,10 @@ class Cart extends Component {
         this.state.produk.map(prd =>{
             const data = {
                 user : this.state.id_user,
-                produk: prd.id,
+                produk: prd.id_produk,
                 count : prd.count,
                 desk : this.state.desk,
-                namap : prd.nama,
+                namap : prd.nama_produk,
                 hargap : prd.harga,
                 namau :  this.state.nama_user,
                 jml : prd.count
@@ -78,7 +79,6 @@ class Cart extends Component {
            
                 <Container>
                     <Card body>
-                    <hr />
                    
                     { this.state.produk.length > 0 ?
                         this.state.produk.map(produk => {
@@ -90,8 +90,7 @@ class Cart extends Component {
                         </>
                     
                     }
-                    <hr/>
-                    <button className="btn btn-info margin" onClick={this.handlerSimpan} >CHECKOUT</button>
+                    <Button variant="success" className="float-right" onClick={this.handlerSimpan} ><RiWhatsappFill size="1.4rem"/> Order Via Whatsapp</Button>
                     </Card>
                 </Container>
                 

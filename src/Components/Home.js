@@ -40,18 +40,15 @@ class Home extends Component {
         }
         return (
             <>
-            <Container fluid>
+            <Container>
             <Slideshow data={this.state.Slideshow} />
             </Container>
                 <Container>
-                 
-
                         { this.state.loading ?
                         <Loader options={options} className="spinner" />
-                        
                         :
                         <>
-                        <h2>Semua Produk</h2>
+                        <h3 className="mt-3">Semua Produk</h3>
                            <Produk data={this.state.Produk} totalCnt={this.props.totalCnt}/>
                         </>
                         }

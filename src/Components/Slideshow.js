@@ -41,7 +41,7 @@ class Slideshow extends Component {
 
         ))
         return (
-            <TinySlider settings={settings}>
+            <TinySlider settings={settings} className="py-3">
                 {ListSlideshow}
             </TinySlider>
         )
