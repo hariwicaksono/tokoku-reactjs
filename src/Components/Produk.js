@@ -52,13 +52,13 @@ class Produk extends Component {
        
                 const slice = this.props.data.slice(this.state.offset, this.state.offset + this.state.perPage)
                 const ListProduk = slice.map((produk, key) => (
-                    <Col md={3} key={produk.id_produk}>
+                    <Col md={3} key={produk.id}>
                     <Card className="shadow-sm mb-3">
-                        <Card.Img variant="top" src={this.state.url+produk.foto_produk} alt={produk.nama_produk} />
+                        <Card.Img variant="top" src={this.state.url+'/products/'+produk.src} alt={produk.name} />
                         <Card.Body className="pt-1">
-                            <Card.Text className="mb-0" style={{fontSize: '1.125rem'}}>{produk.nama_produk}</Card.Text>
-                            <Card.Text className="text-danger" style={{fontSize: '1rem'}}>Rp{produk.harga_produk}</Card.Text>
-                            <Link to={'/detail/'+produk.id_produk} className="" ></Link>
+                            <Card.Text className="mb-0" style={{fontSize: '1.125rem'}}>{produk.name}</Card.Text>
+                            <Card.Text className="text-danger" style={{fontSize: '1rem'}}>Rp{produk.price}</Card.Text>
+                            <Link to={'/detail/'+produk.id} className="" ></Link>
                             <button type="submit" name="submit" defaultValue="Keranjang" className="btn btn-secondary btn-block" onClick={() => this.handleSubmit(produk, key)}>Tambah Ke <FiShoppingCart size="1.5em"/></button>
                         </Card.Body>
                     </Card>
