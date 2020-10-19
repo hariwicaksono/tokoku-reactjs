@@ -25,10 +25,10 @@ class Produk extends Component {
         const array = [];
         array.push(data);
         const cartData = JSON.parse(localStorage.getItem('cartItem'));
-        const findManData = _.findWhere(cartData, {id_produk: data.id_produk});
+        const findManData = _.findWhere(cartData, {id: data.id});
         if (findManData) {
             for (let i = 0; i < cartData.length; i++) {
-                if (data.id_produk === cartData[i].id_produk) {
+                if (data.id === cartData[i].id) {
                     cartData[i].count += 1; 
                     break;
                 }
